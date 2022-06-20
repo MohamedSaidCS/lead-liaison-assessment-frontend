@@ -1,11 +1,11 @@
 <template>
+  <NavbarComponent/>
   <router-view></router-view>
 </template>
 
-<script>
-export default {
-  name: 'App',
-}
+<script setup>
+
+import NavbarComponent from "@/components/NavbarComponent";
 </script>
 
 <style>
