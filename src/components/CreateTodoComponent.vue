@@ -1,0 +1,13 @@
+<template>
+  create
+</template>
+
+<script>
+export default {
+  name: "CreateTodoComponent"
+}
+</script>
+
+<style scoped>
+
+</style>
