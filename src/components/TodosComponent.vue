@@ -18,10 +18,10 @@
       <td>{{todo.title}}</td>
       <td>{{todo.completed ? 'Finished' : 'Unfinished'}}</td>
       <td class="d-flex justify-content-end">
-        <button class="btn btn-success ms-1" :disabled="todo.completed">Mark Done</button>
+        <button class="btn btn-success ms-1" :disabled="todo.completed" @click="finishTodo(todo.id)">Mark Done</button>
         <router-link :to="`/todos/${todo.id}`" class="btn btn-primary ms-1">Details</router-link>
         <router-link :to="`/todos/${todo.id}/edit`" class="btn btn-dark ms-1">Edit</router-link>
-        <button class="btn btn-danger ms-1">Delete</button>
+        <button class="btn btn-danger ms-1" @click="deleteTodo(todo.id)">Delete</button>
       </td>
     </tr>
     </tbody>
@@ -37,6 +37,18 @@ const todos = ref([]);
 const fetchTodos = async () => {
   const response = await axios.get('http://127.0.0.1:8000/api/todos');
   todos.value = await response.data;
+}
+
+const finishTodo = async (id) => {
+  await axios.patch(`http://127.0.0.1:8000/api/todos/${id}`);
+  const index = todos.value.findIndex(todo => todo.id === id);
+  todos.value[index].completed = true;
+}
+
+const deleteTodo = async (id) => {
+  await axios.delete(`http://127.0.0.1:8000/api/todos/${id}`);
+  const index = todos.value.findIndex(todo => todo.id === id);
+  todos.value.splice(index, 1);
 }
 
 fetchTodos();
