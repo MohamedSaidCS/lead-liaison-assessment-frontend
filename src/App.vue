@@ -1,6 +1,8 @@
 <template>
   <NavbarComponent/>
-  <router-view></router-view>
+  <div class="container">
+    <router-view></router-view>
+  </div>
 </template>
 
 <script setup>
