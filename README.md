@@ -2,6 +2,11 @@
 
 # Lead Liaison Assessment - Frontend
 
+# Technologies used
+1) Vue.js
+2) Bootstrap
+3) Axios
+
 ## [Backend](https://github.com/MohamedSaidCS/lead-liaison-assessment-backend)
 
 # Instructions
