@@ -37,7 +37,7 @@ const createTodo = async () => {
   success.value = '';
   error.value = '';
   try {
-    const response = await axios.post('http://127.0.0.1:8000/api/todos', data.value);
+    const response = await axios.post(`${process.env.VUE_APP_BASE_URL}/api/todos`, data.value);
     const result = response.status;
     if(result === 201)
       success.value = 'Todo Created Successfully!';

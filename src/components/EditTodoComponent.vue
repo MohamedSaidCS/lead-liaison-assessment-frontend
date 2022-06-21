@@ -42,7 +42,7 @@ const notFound = ref(false);
 const fetchTodo = async (id) => {
   loading.value = true
   try {
-    const response = await axios.get(`http://127.0.0.1:8000/api/todos/${id}`);
+    const response = await axios.get(`${process.env.VUE_APP_BASE_URL}/api/todos/${id}`);
     todo.value = await response.data;
   } catch (e) {
     if(e.response.status === 404)
@@ -55,7 +55,7 @@ const editTodo = async () => {
   success.value = '';
   error.value = '';
   try {
-    const response = await axios.put(`http://127.0.0.1:8000/api/todos/${id.value}`, todo.value);
+    const response = await axios.put(`${process.env.VUE_APP_BASE_URL}/api/todos/${id.value}`, todo.value);
     const result = response.status
     if(result === 200)
       success.value = 'Todo Edited Successfully!';

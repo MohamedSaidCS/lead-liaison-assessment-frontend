@@ -41,19 +41,19 @@ const loading = ref(false);
 
 const fetchTodos = async () => {
   loading.value = true;
-  const response = await axios.get('http://127.0.0.1:8000/api/todos');
+  const response = await axios.get(`${process.env.VUE_APP_BASE_URL}/api/todos`);
   todos.value = await response.data;
   loading.value = false;
 }
 
 const finishTodo = async (id) => {
-  await axios.patch(`http://127.0.0.1:8000/api/todos/${id}`);
+  await axios.patch(`${process.env.VUE_APP_BASE_URL}/api/todos/${id}`);
   const index = todos.value.findIndex(todo => todo.id === id);
   todos.value[index].completed = true;
 }
 
 const deleteTodo = async (id) => {
-  await axios.delete(`http://127.0.0.1:8000/api/todos/${id}`);
+  await axios.delete(`${process.env.VUE_APP_BASE_URL}/api/todos/${id}`);
   const index = todos.value.findIndex(todo => todo.id === id);
   todos.value.splice(index, 1);
 }
