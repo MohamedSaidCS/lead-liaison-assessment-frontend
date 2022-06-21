@@ -8,10 +8,7 @@
       <div class="collapse navbar-collapse" id="navbarColor01">
         <ul class="navbar-nav me-auto mb-2 mb-lg-0">
           <li class="nav-item">
-            <router-link to="/todos" class="nav-link active" aria-current="page">Todos</router-link>
-          </li>
-          <li class="nav-item">
-            <router-link to="/todos/create" class="nav-link">Create</router-link>
+            <router-link to="/todos" class="nav-link" aria-current="page">Todos</router-link>
           </li>
         </ul>
       </div>
